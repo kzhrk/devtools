@@ -1,9 +1,19 @@
 <script setup lang="ts">
-import { computed, nextTick } from 'vue'
+import type { PropType } from 'vue'
+import { computed, nextTick, ref } from 'vue'
 
 import { useColorMode } from '@vueuse/core'
 
-const mode = useColorMode()
+const props = defineProps({
+  theme: {
+    type: String as PropType<'light' | 'dark'>,
+    default: undefined,
+  },
+})
+
+const mode = useColorMode({
+  storageRef: props.theme ? ref(props.theme) : undefined,
+})
 const isDark = computed<boolean>({
   get() {
     return mode.value === 'dark'

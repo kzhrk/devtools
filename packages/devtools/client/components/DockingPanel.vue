@@ -1,6 +1,9 @@
 <script setup lang="ts">
 const { sidebarExpanded } = useDevToolsUIOptions()
 
+const client = useClient()
+const colorMode = client.value?.app.colorMode
+
 function toggleSplitScreen() {
   splitScreenEnabled.value = !splitScreenEnabled.value
 }
@@ -9,7 +12,7 @@ function toggleSplitScreen() {
 <template>
   <div>
     <div px3 py2 border="b base" flex="~ gap-2">
-      <NDarkToggle v-slot="{ toggle, isDark }">
+      <NDarkToggle v-slot="{ toggle, isDark }" :theme="colorMode">
         <NButton n="sm primary" @click="toggle">
           <div i-carbon-sun dark:i-carbon-moon translate-y--1px /> {{ isDark.value ? 'Dark' : 'Light' }}
         </NButton>

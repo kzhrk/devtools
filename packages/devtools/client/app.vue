@@ -47,6 +47,11 @@ watch(
   { immediate: true },
 )
 
+if (client.value?.app.colorMode.value) {
+  colorMode.value = client.value?.app.colorMode.value
+  colorMode.preference = 'no-preference'
+}
+
 addEventListener('keydown', (e) => {
   if (e.code === 'KeyD' && e.altKey) {
     client.value?.devtools.close()

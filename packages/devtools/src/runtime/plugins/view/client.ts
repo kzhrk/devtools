@@ -324,6 +324,10 @@ export function useClientColorMode(): Ref<ColorScheme> {
       }
     }
 
+    const theme = useRuntimeConfig().app.devtools?.theme
+    if (theme)
+      color = theme
+
     explicitColor.value = color
   }
 

@@ -109,6 +109,11 @@ export interface ModuleOptions {
    * By default it will respect global Nuxt telemetry settings.
    */
   telemetry?: boolean
+
+  /**
+   * Default theme
+   */
+  theme?: 'dark' | 'light'
 }
 
 export interface ModuleGlobalOptions {

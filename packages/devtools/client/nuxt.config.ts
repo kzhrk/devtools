@@ -5,6 +5,10 @@ import DevToolsUiKit from '../../devtools-ui-kit/src/module'
 const resolver = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
+  devtools: {
+    enabled: true,
+    theme: 'dark',
+  },
   modules: [
     '@nuxt/test-utils/module',
     '~/modules/markdown',
